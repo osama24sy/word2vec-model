@@ -6,7 +6,7 @@ import pandas as pd
 
 
 class Word2vec:
-    def __init__(self):
+    def __init__(self, settings):
         self.n = settings["n"]
         self.eta = settings["learning_rate"]
         self.epochs = settings["epochs"]
@@ -15,7 +15,7 @@ class Word2vec:
         pass
 
     # GENERATE TRAINING DATA
-    def generate_training_data(self, settings, corpus):
+    def generate_training_data(self, corpus):
 
         # GENERATE WORD COUNTS
         word_counts = dict(

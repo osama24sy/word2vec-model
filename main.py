@@ -12,15 +12,15 @@ settings['learning_rate'] = 0.05    # learning rate
 settings['num_word'] = 50         # Number of the most frequent unique words
 np.random.seed(0)                   # set the seed for reproducibility
 
-path = ''
+path = './example.txt'
 
 corpus_raw, data, word, info = load_data.load_data(path)
 
 # INITIALIZE W2V MODEL
-w2v = word2vec.Word2vec()
+w2v = word2vec.Word2vec(settings)
 
 # generate training data
-training_data = w2v.generate_training_data(settings, data)
+training_data = w2v.generate_training_data(data)
 
 # train word2vec model
 w2v.train(training_data)
