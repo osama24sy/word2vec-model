@@ -57,8 +57,17 @@ def load_data(path) :
     for line in text_data.readlines():
         corpus_raw += line
     text_data.close()
+    
+    print(f"The data has been successfully loaded from {path}")
+    
     corpus_raw = corpus_raw.lower()
 
     data, words, info = tokenizer(corpus_raw)
+
+    print(f"{path} has been successfully processed and tokenized\n",
+          f"Total number of words: {info['wordCount']}\n",
+          f"Total sentence count: {info['sentenceCount']}\n",
+          f"The dictionary size is : {info['dictSize']}\n", 
+          f"The runtime is {info['runtime']} seconds\n")
 
     return corpus_raw, data, words, info
